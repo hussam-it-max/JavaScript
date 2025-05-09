@@ -11,4 +11,12 @@
  *   Serves: 2
  *   Ingredients: 4 eggs, 2 strips of bacon, 1 tsp salt/pepper
  */
+const recipe = {
+    mealName: 'Pasta',
+    serving: 4,
+    Ingredients: ['500g meat', '300g tomatoes', '200g spaghetti']
+}
+for (const x of Object.keys(recipe)) {
+    console.log(`${x} : ${recipe[x]}`);
+}
 

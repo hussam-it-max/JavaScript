@@ -9,3 +9,37 @@
 
 // There are 3 different types of drinks:
 const drinkTypes = ['cola', 'lemonade', 'water'];
+const drinkTray = [];
+
+let colaCount = 0;
+let lemonadeCount = 0;
+let waterCount = 0;
+
+for (let i = 0; i < 5; i++) {
+    for (x of drinkTypes) {
+        if (x === 'cola') {
+            if (colaCount < 2) {
+                drinkTray.push(x);
+                colaCount++;
+                break;
+            }
+        }
+        else if (x === 'lemonade') {
+            if (lemonadeCount < 2) {
+                drinkTray.push(x);
+                lemonadeCount++;
+                break;
+            }
+        }
+        else {
+            if (waterCount < 2) {
+                drinkTray.push(x);
+                waterCount++;
+
+                break;
+            }
+        }
+    }
+
+};
+console.log("Hey guys, I brought a " + drinkTray.join(', ') + "!");

@@ -6,6 +6,9 @@
  */
 
 let myString = 'hello,this,is,a,difficult,to,read,sentence';
+let mystringV1 = myString.split(',');
+myString = mystringV1.join(' ');
+console.log(myString);
 
 
 
