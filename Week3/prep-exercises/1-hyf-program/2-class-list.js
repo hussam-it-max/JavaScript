@@ -12,10 +12,27 @@ import { modules, students, mentors, classes } from "./hyf.js";
  *  [{ name: 'John', role: 'student' }, { name: 'Mary', role: 'mentor' }]
  */
 const getPeopleOfClass = (className) => {
-  // TODO complete this function
+  const arrOfParticipatnes=[];
+  for(let student of students){
+    if(student.class===className){
+      arrOfParticipatnes.push({name:student.name,role:'student'});
+    }
+
+  }
+  const currentClass= classes.find(cl=>cl.name===className);
+  for(let mentor of mentors){
+    if(mentor.nowTeaching!=undefined && currentClass.currentModule!=undefined && mentor.nowTeaching===currentClass.currentModule){
+      arrOfParticipatnes.push({name:mentor.name,role:'mentor'});
+    }
+    
+  }
+
+  return arrOfParticipatnes;
+
+  
 };
 // You can uncomment out this line to try your function
-// console.log(getPeopleOfClass('class34'));
+ console.log(getPeopleOfClass('class34'));
 
 /**
  * We would like to have a complete overview of the current active classes.
@@ -30,7 +47,12 @@ const getPeopleOfClass = (className) => {
  *  }
  */
 const getActiveClasses = () => {
-  // TODO complete this function
+  const obj={};
+  const arrofClass=classes.filter(cla=>cla.active===true);
+  for (let currentClass of arrofClass){
+    obj[currentClass.name]=getPeopleOfClass(currentClass.name);
+  }
+  return obj;
 };
 // You can uncomment out this line to try your function
-// console.log(getActiveClasses());
+ console.log(getActiveClasses());
