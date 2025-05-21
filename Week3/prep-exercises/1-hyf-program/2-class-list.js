@@ -12,22 +12,22 @@ import { modules, students, mentors, classes } from "./hyf.js";
  *  [{ name: 'John', role: 'student' }, { name: 'Mary', role: 'mentor' }]
  */
 const getPeopleOfClass = (className) => {
-  const arrOfParticipatnes=[];
+  const courseParticipants=[];
   for(let student of students){
     if(student.class===className){
-      arrOfParticipatnes.push({name:student.name,role:'student'});
+      courseParticipants.push({name:student.name,role:'student'});
     }
 
   }
   const currentClass= classes.find(cl=>cl.name===className);
   for(let mentor of mentors){
     if(mentor.nowTeaching!=undefined && currentClass.currentModule!=undefined && mentor.nowTeaching===currentClass.currentModule){
-      arrOfParticipatnes.push({name:mentor.name,role:'mentor'});
+      courseParticipants.push({name:mentor.name,role:'mentor'});
     }
     
   }
 
-  return arrOfParticipatnes;
+  return courseParticipants;
 
   
 };
